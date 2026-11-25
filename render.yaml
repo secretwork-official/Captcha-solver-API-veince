@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: captcha-solver
+    runtime: docker
+    plan: free
+    region: oregon
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: ENGINE
+        value: auto
+      - key: MAX_VARIANTS
+        value: "6"
+      - key: RATE_PER_MIN
+        value: "30"
+      - key: RATE_PER_DAY
+        value: "3000"
